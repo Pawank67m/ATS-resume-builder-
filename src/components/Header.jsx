@@ -9,7 +9,8 @@ import {
   RotateCcw,
   Award,
   Upload,
-  ShieldCheck
+  ShieldCheck,
+  UserCheck
 } from 'lucide-react';
 
 export const STEPS = [
@@ -72,14 +73,22 @@ export default function Header({
             <Upload size={14} /> Upload Resume
           </button>
 
-          {/* Sample Loader */}
-          <div className="action-group">
-            <button className="btn btn-primary btn-sm" onClick={() => onLoadSample('pavanSai')}>
-              <RotateCcw size={14} /> Pavan Sai Resume
-            </button>
-            <button className="btn btn-secondary btn-sm" onClick={() => onLoadSample('softwareDeveloper')}>
-              Dev Sample
-            </button>
+          {/* Sample Profiles Dropdown */}
+          <div className="template-select-wrapper" style={{ zIndex: 100, background: 'var(--primary)' }}>
+            <UserCheck size={16} style={{ color: 'white' }} />
+            <select 
+              defaultValue="pavanSai"
+              onChange={(e) => onLoadSample(e.target.value)}
+              className="template-select"
+              style={{ fontWeight: 600 }}
+            >
+              <option value="pavanSai" style={{ background: '#1e293b', color: 'white', padding: '8px' }}>
+                👤 Pavan Sai Resume (AI & Cloud)
+              </option>
+              <option value="softwareDeveloper" style={{ background: '#1e293b', color: 'white', padding: '8px' }}>
+                💻 Software Engineer Sample
+              </option>
+            </select>
           </div>
 
           {/* Color Selector */}
